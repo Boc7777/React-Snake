@@ -8,8 +8,8 @@ const App = () => {
   const [y,setY] = useState(10);
   const [Game,setGame] = useState(false);
 
-  function Start(){
-    setGame(true)
+  function SwitchStart(){
+    setGame(!Game)
   }
 
 
@@ -20,14 +20,14 @@ const App = () => {
           <div id='UI'>
 
             <div> Snake</div>
-            <label>  X: <input type='number' onChange={(e) => setX(e.target.value)} ></input>  </label>
-            <label>  Y: <input type='number' onChange={(e) => setY(e.target.value)} ></input>  </label>
-            <button onClick={Start.bind(this)}>Start</button>
+            <label>  X: <input type='number' onChange={(e) => setX(e.target.value)} value={x}></input>  </label>
+            <label>  Y: <input type='number' onChange={(e) => setY(e.target.value)} value={y}></input>  </label>
+            <button onClick={SwitchStart.bind(this)}>Start</button>
 
           </div>
         </div>
       )
-      :(<GameComponent x={x} y={y}/>)
+      :(<GameComponent x={x} y={y} SwitchStart={ SwitchStart.bind(this)} />)
   );
 
 
